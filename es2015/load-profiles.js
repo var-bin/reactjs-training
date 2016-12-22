@@ -1,13 +1,16 @@
 "use strict";
 
-function loadProfiles(userNames) {
-  let message = "Loading " + userNames.length + " user(s)";
+function loadProfiles(userNames){
+
+  const MAX_USERS = 15;
+
+  if(userNames.length > MAX_USERS){
+  	return false;
+  }
   
-  _displayFlash(message);
-  
-  _fetchProfiles(userNames, function (data) {
-    let profiles = data.profiles;
-    
-    _addToPage(profiles);
-  });
+  for(let i=0; i < userNames.length; i++){
+  	_fetchProfile(userNames[i], function(data){
+    	_addToSidebar(userNames[i], data);
+    });
+  }
 }
