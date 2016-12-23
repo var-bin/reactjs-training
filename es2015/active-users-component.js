@@ -6,7 +6,7 @@ function ActiveUsersComponent(target, topicId) {
 }
 
 ActiveUsersComponent.prototype.render = function () {
-  getActiveUsers(this.topicId, function (data) {
+  getActiveUsers(this.topicId, (data) => {
     let userNameDivs = appendUserNames(...data.userNames);
     
     appendToSidebar(this.targetElement, userNameDivs);
