@@ -1,7 +1,7 @@
 "use strict";
 
 getActiveUsers(15, function (data) {
-  let userNameDivs = appendUserNames(  );
+  let userNameDivs = appendUserNames(...data.userNames);
   
   appendToSidebar(".side-bar", userNameDivs);
 });
