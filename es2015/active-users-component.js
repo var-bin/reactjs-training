@@ -12,3 +12,8 @@ ActiveUsersComponent.prototype.render = function () {
     appendToSidebar(this.targetElement, userNameDivs);
   });
 };
+
+// Create new component
+let component = new ActiveUsersComponent(".active-users", 17);
+
+component.render();
