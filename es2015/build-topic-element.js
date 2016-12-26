@@ -5,5 +5,5 @@ function buildTopicElement(topic){
   let author = "<small>" + topic.author + "</small>";
   let body = "<p>" + topic.body + "</p>";
 
-  return { title: title, author: author, body: body };
+  return { title, author, body };
 }
