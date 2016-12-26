@@ -3,6 +3,6 @@
 let topicId = currentTopic();
 let activeUsers = ["Sam", "Tyler", "Brook"];
 
-for(  ){
-  notifyTopicReply(topicId,  );
+for(let user of activeUsers) {
+  notifyTopicReply(topicId, user);
 }
