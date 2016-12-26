@@ -8,7 +8,7 @@ function spinner(target, options = {}){
     cssClass: ".is-spinning"
   };
 
-  let settings = Object.assign();
+  let settings = Object.assign({}, defaults, options);
 
   if(settings.spinningSpeed !== defaults.spinningSpeed){
     settings.cssClass = _addSpeedClass(target);
