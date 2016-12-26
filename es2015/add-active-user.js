@@ -1,5 +1,5 @@
 "use strict";
 
-let = ["Sam", "Tyler", "Brook"];
+let [first, ...remainingUsers] = ["Sam", "Tyler", "Brook"];
 
 addActiveUsers(first, remainingUsers);
