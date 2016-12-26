@@ -4,6 +4,6 @@ let name = "Brook";
 let totalReplies = 249;
 let avatar = "/user/avatars/brook-user-1.jpg";
 
-let user = ;
+let user = {name, totalReplies, avatar};
 
 addUserToSidebar(user);
