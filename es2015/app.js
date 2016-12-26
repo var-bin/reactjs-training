@@ -1,0 +1,9 @@
+"use strict";
+
+function buildTopicInfo(topic){
+  let title = `<h1>${topic.title}</h1>`;
+  let author = `<small>${topic.author}<small>`;
+}
+
+let topic = getCurrentTopic();
+let [topicTitle, topicAuthor] = buildTopicInfo(topic);
