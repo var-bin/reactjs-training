@@ -3,12 +3,13 @@
 class TopicReplyCounter {
   constructor(topicId, replies) {
     this.topicId = topicId;
-    this.replies = replies;
+    this.replies = replies || [];
     this.replyCount = this.replies.length;
   }
   
   addReply(reply) {
-    
+    this.replies.push(reply);
+    this.replyCount = this.totalReplies().length;
   }
   
   totalReplies() {
