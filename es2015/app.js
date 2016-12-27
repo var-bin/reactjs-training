@@ -1,11 +1,10 @@
 "use strict";
 
-function buildTopicInfo(topic){
-  let title = `<h1>${topic.title}</h1>`;
-  let author = `<small>${topic.author}<small>`;
-  
-  return [title, author];
-}
+import isTopicValid from "./is-topic-valid.js";
 
-let topic = getCurrentTopic();
-let [topicTitle, topicAuthor] = buildTopicInfo(topic);
+let topic = {
+  title: "ES2015",
+  author: { name: "Sam", isBlocked: false }
+};
+
+isTopicValid(topic);
