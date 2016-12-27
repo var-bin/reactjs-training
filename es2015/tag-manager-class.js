@@ -1,6 +1,6 @@
 "use strict";
 
-class  TagManager {
+class TagManager {
   constructor(topicId) {
     this.topicId = topicId;
   }
