@@ -1,4 +1,9 @@
 "use strict";
 
-let replyCount = 21;
-let message = `This topic has a total of ${replyCount} replies`;
+let author1 = { name: "Sam" };
+let author2 = { name: "Tyler" };
+
+let totalReplies = ;
+
+console.log( `Total Replies: ${totalReplies.get(author1)}` );
+console.log( `Total Replies: ${totalReplies.get(author2)}` );
