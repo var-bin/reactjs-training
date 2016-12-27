@@ -1,6 +1,6 @@
 "use strict";
 
-import isTopicValid from "./is-topic-valid.js";
+import { isTopicValid, isEmailAuthorized } from "./validators";
 
 let topic = {
   title: "ES2015",
@@ -8,3 +8,5 @@ let topic = {
 };
 
 isTopicValid(topic);
+
+isEmailAuthorized(author.email);
