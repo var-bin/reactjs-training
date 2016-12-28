@@ -1,12 +1,6 @@
 "use strict";
 
-import { isTopicValid, isEmailAuthorized } from "./validators";
+import TagManager from "./tag-manager-class";
 
-let topic = {
-  title: "ES2015",
-  author: { name: "Sam", isBlocked: false }
-};
-
-isTopicValid(topic);
-
-isEmailAuthorized(author.email);
+let tagManager = new TagManager(20);
+tagManager.addTag("JavaScript");
