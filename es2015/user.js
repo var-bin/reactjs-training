@@ -18,7 +18,7 @@ user[Symbol.iterator] = function () {
     
     let value = this[properties[count++]];
     
-    return;
+    return { done: isDone, value };
   };
   
   return { next };
