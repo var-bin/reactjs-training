@@ -26,3 +26,5 @@ class Advertisement {
   let ad = new Advertisement("CodeSchool", "http://codeschool.com");
   _appendToPage( targetElement, ad.render() );
 */
+
+export { Advertisement };
