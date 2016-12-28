@@ -7,3 +7,6 @@ getReplies(1)
 .then(function (filteredReplies) {
   console.log(filteredReplies);
 })
+.catch(function (error) {
+  console.error(error);
+})
