@@ -6,6 +6,6 @@ function *topicList() {
   yield "TypeScript";
 }
 
-for () {
-  
+for (let topic of topicList()) {
+  console.log(topic);
 }
