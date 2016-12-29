@@ -1,0 +1,19 @@
+{
+  "name": "reactjs-training",
+  "version": "1.0.0",
+  "description": "Improve skills in React.js and other awesome tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://var-bin@github.com/var-bin/reactjs-training.git"
+  },
+  "author": "Vitalii Rybka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/var-bin/reactjs-training/issues"
+  },
+  "homepage": "https://github.com/var-bin/reactjs-training#readme"
+}
