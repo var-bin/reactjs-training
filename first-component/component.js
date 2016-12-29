@@ -2,8 +2,8 @@
 
 class StoryBox extends React.Component {
   render() {
-    const now = new Date();
-    const topicLists = ["HTML", "JavaScript", "React"];
+    const NOW = new Date();
+    const TOPIC_LISTS = ["HTML", "JavaScript", "React"];
     
     return(
       <section>
@@ -11,10 +11,10 @@ class StoryBox extends React.Component {
           Story Box
         </h3>
         <p className="lead">
-          Current time: {now.toTimeString()}
+          Current time: {NOW.toTimeString()}
         </p>
         <ul>
-          {topicLists.map(
+          {TOPIC_LISTS.map(
             topic => <li className={topic}>{topic}</li>
           )}
         </ul>
