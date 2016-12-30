@@ -12,6 +12,18 @@ class CommentBox extends React.Component {
     }
   }
 
+  _fetchComments() {
+    $.ajax({
+      method: "GET",
+      url: "./assets/comments.json",
+      success: (comments) => {
+        this.setState({
+          comments: comments
+        })
+      }
+    });
+  }
+
   _getComments() {
     return this.state.comments.map( (comment) => {
       return (<Comment
