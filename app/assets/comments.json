@@ -1,0 +1,18 @@
+[{
+  "id": 1,
+  "author": "Morgan McCircuit",
+  "body": "Great picture!",
+  "avatarUrl": "./assets/images/default-avatar.png"
+},
+{
+  "id": 2,
+  "author": "Bending Bender",
+  "body": "Excellent style!",
+  "avatarUrl": "./assets/images/default-avatar.png"
+},
+{
+  "id": 3,
+  "author": "Bending Bender 1",
+  "body": "Excellent style!!!",
+  "avatarUrl": "./assets/images/default-avatar.png"
+}]

@@ -8,26 +8,7 @@ class CommentBox extends React.Component {
 
     this.state = {
       showComments: false,
-      comments: [
-        {
-          id: 1,
-          author: "Morgan McCircuit",
-          body: "Great picture!",
-          avatarUrl: './assets/images/default-avatar.png'
-        },
-        {
-          id: 2,
-          author: "Bending Bender",
-          body: "Excellent style!",
-          avatarUrl: './assets/images/default-avatar.png'
-        },
-        {
-          id: 3,
-          author: "Bending Bender 1",
-          body: "Excellent style!!!",
-          avatarUrl: './assets/images/default-avatar.png'
-        }
-      ]
+      comments: []
     }
   }
 
@@ -129,6 +110,14 @@ class CommentForm extends React.Component {
     });
   }
 
+  _showCharacterCount() {
+    return (
+      <div>
+        {`${this.state.characters} characters you have already typed`}
+      </div>
+    )
+  }
+
   render() {
     return (
       <form className="comment-form" onSubmit={this._handleSubmit.bind(this)}>
@@ -138,9 +127,7 @@ class CommentForm extends React.Component {
         <div className="comment-form-fields">
           <input placeholder="Name:" ref={(input) => this._author = input}/>
           <textarea placeholder="Comment:" ref={(textarea) => this._body = textarea} onKeyUp={this._getCharacterCount.bind(this)}></textarea>
-          <div>
-            {`${this.state.characters} characters`}
-          </div>
+          {this._showCharacterCount()}
         </div>
         <div className="comment-form-actions">
           <button type="submit">
