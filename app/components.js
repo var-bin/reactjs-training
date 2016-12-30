@@ -88,15 +88,9 @@ class Comment extends React.Component {
   _toggleAbuse(event) {
     event.preventDefault();
 
-    if (!this.state.isAbusive) {
-      return this.setState({
-        isAbusive: true
-      });
-    }
-
-    return this.setState({
-      isAbusive: false
-    });
+    this.setState(prevState => ({
+      isAbusive: !prevState.isAbusive
+    }));
   }
 
   render() {
