@@ -35,7 +35,8 @@ class CommentBox extends React.Component {
         author={comment.author}
         body={comment.body}
         avatarUrl={comment.avatarUrl}
-        key={comment.id} />)
+        key={comment.id}
+        onDelete={this._deleteComment.bind(this)} />)
     })
   };
 
@@ -75,8 +76,24 @@ class CommentBox extends React.Component {
 
   _getAvatars() {
     return this.state.comments.map( (comment) => {
-      return (comment.avatarUrl);
+      return ({
+        avatarUrl: comment.avatarUrl,
+        author: comment.author
+      });
     });
+  }
+
+  _deleteComment(comment) {
+    $.ajax({
+      method: "DELETE",
+      url: `/api/comments/${comment.id}`
+    });
+
+    let comments = [...this.state.comments];
+    let commentIndex = comments.indexOf(comment);
+    comments.splice(commentIndex, 1);
+
+    this.state({ comments });
   }
 
   render() {
@@ -85,7 +102,7 @@ class CommentBox extends React.Component {
     return(
       <div className="comment-box">
         <CommentForm addComment={this._addComment.bind(this)} />
-        <CommentAvatarList avatars={this._getAvatars()}/>
+        <CommentAvatarList options={this._getAvatars()}/>
         <h3>
           Comments
         </h3>
@@ -180,6 +197,14 @@ class Comment extends React.Component {
     }));
   }
 
+  _handleDelete(event) {
+    event.preventDefault();
+
+    if (confirm("Are you sure?")) {
+      this.props.onDelete(this.props.comment);
+    }
+  }
+
   render() {
 
     let commentBody;
@@ -200,7 +225,7 @@ class Comment extends React.Component {
           {commentBody}
         </p>
         <div className="comment-actions">
-          <a href="#">
+          <a href="#" onClick={this._handleDelete.bind(this)}>
             Delete comment
           </a>
           <a href="#" onClick={this._toggleAbuse.bind(this)}>
@@ -215,20 +240,61 @@ class Comment extends React.Component {
 class CommentAvatarList extends React.Component {
   render() {
 
-    const { avatars = [] } = this.props;
+    const { options = [] } = this.props;
 
     return (
       <div className="comment-avatars">
         <h4>Authors</h4>
         <ul>
-          {avatars.map( (avatarUrl, i) => (
+          {options.map( (opt, i) => (
             <li key={i}>
-              <img src={avatarUrl} />
+              <img src={opt.avatarUrl} alt={opt.author}/>
             </li>
           ))}
         </ul>
       </div>
     );
+  }
+}
+
+class RemoveCommentConfirmation extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      showConfirm: false
+
+
+    };
+  }
+
+  render() {
+    let confirmNode;
+    if (this.state.showConfirm) {
+      return (
+        <span>
+          <a href="#" onClick={this._confirmDelete.bind(this)}>Yes </a> - or - <a href="" onClick={this._toggleConfirmMessage.bind(this)}> No</a>
+        </span>
+      );
+    } else {
+      confirmNode = <a href="" onClick={this._toggleConfirmMessage.bind(this)}>Delete comment?</a>;
+    }
+    return (
+      <span>{confirmNode}</span>
+    );
+  }
+
+  _toggleConfirmMessage(e) {
+    e.preventDefault();
+
+    this.setState({
+      showConfirm: !this.state.showConfirm
+    });
+  }
+
+  _confirmDelete(e) {
+    e.preventDefault();
+    this.props.onDelete();
   }
 }
 
