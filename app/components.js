@@ -12,10 +12,15 @@ class CommentBox extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this._fetchComments();
+  }
+
   _fetchComments() {
     $.ajax({
       method: "GET",
       url: "./assets/comments.json",
+      dataType: "json",
       success: (comments) => {
         this.setState({
           comments: comments
@@ -68,12 +73,19 @@ class CommentBox extends React.Component {
     this.setState({comments: this.state.comments.concat([comment])});
   }
 
+  _getAvatars() {
+    return this.state.comments.map( (comment) => {
+      return (comment.avatarUrl);
+    });
+  }
+
   render() {
     const comments = this._getComments();
 
     return(
       <div className="comment-box">
         <CommentForm addComment={this._addComment.bind(this)} />
+        <CommentAvatarList avatars={this._getAvatars()}/>
         <h3>
           Comments
         </h3>
@@ -195,6 +207,26 @@ class Comment extends React.Component {
             Report as Abuse
           </a>
         </div>
+      </div>
+    );
+  }
+}
+
+class CommentAvatarList extends React.Component {
+  render() {
+
+    const { avatars = [] } = this.props;
+
+    return (
+      <div className="comment-avatars">
+        <h4>Authors</h4>
+        <ul>
+          {avatars.map( (avatarUrl, i) => (
+            <li key={i}>
+              <img src={avatarUrl} />
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
