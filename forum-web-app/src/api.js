@@ -2,13 +2,15 @@
 
 // src/api.js
 
+import { BASE_URI, ERROR_MESSAGE } from "./constants";
+
 let API = {
   fetch(path) {
     return new Promise( (resolve, reject) => {
-      let uri = `http://localhost:3000/${path}`;
+      let uri = `${BASE_URI}/${path}`;
       let request = new XMLHttpRequest();
 
-      request.open("GET", path, true);
+      request.open("GET", uri, true);
       request.onload = () => {
         let status = request.status;
 
@@ -18,7 +20,7 @@ let API = {
       };
 
       request.onerror = () => {
-        reject(new Error("Something went wrong on the API"));
+        reject(new Error(ERROR_MESSAGE));
       }
 
       request.send();
