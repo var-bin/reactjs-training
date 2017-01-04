@@ -3,6 +3,7 @@
 // src/app.js
 
 import { Post } from "./post";
+import { User } from "./user";
 import { ui } from "./ui";
 
 Post.findAll()
