@@ -14,6 +14,17 @@ let ui = {
 
     let target = document.querySelector(".container");
     target.innerHTML = elements.join("");
+  },
+
+  renderUsers(users) {
+    let elements = users.map( (user) => {
+      let { name, avatar } = user;
+
+      return userTemplate(name, avatar);
+    });
+
+    let target = document.querySelector(".sidebar-content");
+    target.innerHTML = elements.join("");
   }
 };
 
@@ -32,6 +43,10 @@ function articleTemplate(title, lastReply) {
     </article>`;
 
   return template;
+}
+
+function userTemplate(name, avatar) {
+
 }
 
 export { ui };
