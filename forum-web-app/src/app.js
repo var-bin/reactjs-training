@@ -3,12 +3,7 @@
 // src/app.js
 
 import { Post } from "./post";
-
-let ui = {
-  renderPosts(posts) {
-    console.log(posts);
-  }
-};
+import { ui } from "./ui";
 
 Post.findAll()
 .then(ui.renderPosts)
