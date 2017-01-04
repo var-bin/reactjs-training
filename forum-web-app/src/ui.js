@@ -3,6 +3,7 @@
 // src/ui.js
 
 import xss from "xss-filters";
+import { POSTS_DOM_TARGET, USERS_DOM_TARGET } from "./constants";
 
 let ui = {
   renderPosts(posts) {
@@ -12,7 +13,7 @@ let ui = {
       return articleTemplate(title, lastReply);
     });
 
-    let target = document.querySelector(".container");
+    let target = document.querySelector(POSTS_DOM_TARGET);
     target.innerHTML = elements.join("");
   },
 
@@ -23,7 +24,7 @@ let ui = {
       return userTemplate(name, avatar);
     });
 
-    let target = document.querySelector(".sidebar-content");
+    let target = document.querySelector(USERS_DOM_TARGET);
     target.innerHTML = elements.join("");
   }
 };
