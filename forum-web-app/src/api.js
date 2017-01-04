@@ -3,12 +3,12 @@
 // src/api.js
 
 let API = {
-  fetch() {
+  fetch(path) {
     return new Promise( (resolve, reject) => {
-      let uri = "http://localhost:3000/posts";
+      let uri = `http://localhost:3000/${path}`;
       let request = new XMLHttpRequest();
 
-      request.open("GET", uri, true);
+      request.open("GET", path, true);
       request.onload = () => {
         let status = request.status;
 
@@ -24,4 +24,6 @@ let API = {
       request.send();
     });
   }
-}
+};
+
+export { API };
