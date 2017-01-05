@@ -9,7 +9,7 @@ class LTopMenu extends React.Component {
   render() {
     return (
       <div>
-        <div className="top-menu">
+        <nav className="top-menu">
           <ul>
             <li>
               <Link to="/blog">Blog</Link>
@@ -21,7 +21,7 @@ class LTopMenu extends React.Component {
               <Link to="/video">Video</Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
         {this.props.children}
       </div>
