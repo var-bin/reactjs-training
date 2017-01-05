@@ -3,7 +3,7 @@
 // src/pages/p-picture.js
 
 import React from 'react';
-import CommentBox from '../components/comment-box';
+import { CommentBox } from '../components/comment-box';
 
 class PPicturePage extends React.Component {
   render() {

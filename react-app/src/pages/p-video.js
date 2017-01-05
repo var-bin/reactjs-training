@@ -3,7 +3,7 @@
 // src/pages/p-video.js
 
 import React from 'react';
-import CommentBox from '../components/comment-box';
+import { CommentBox } from '../components/comment-box';
 
 class PVideoPage extends React.Component {
   render() {
