@@ -3,7 +3,7 @@
 // src/pages/blog.js
 
 import React from 'react';
-import CommentBox from '../components/comment-box';
+import { CommentBox } from '../components/comment-box';
 
 class PBlogPage extends React.Component {
   render() {
