@@ -61,10 +61,7 @@ class CommentBox extends React.Component {
   _getComments() {
     return this.state.comments.map((comment) => {
       return <Comment
-               id={comment.id}
-               author={comment.author}
-               body={comment.body}
-               avatarUrl={comment.avatarUrl}
+               { ...comment }
                onDelete={this._deleteComment.bind(this)}
                key={comment.id} />
     });
