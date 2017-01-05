@@ -98,7 +98,7 @@ class CommentBox extends React.Component {
   _fetchComments() {
     jQuery.ajax({
       method: 'GET',
-      url: 'comments.json',
+      url: this.props.apiUrl,
       success: (comments) => {
         this.setState({ comments })
       }
@@ -113,5 +113,9 @@ class CommentBox extends React.Component {
     this.setState({ comments });
   }
 }
+
+CommentBox.propType = {
+  apiUrl: React.PropTypes.string.isRequired
+};
 
 export { CommentBox };
