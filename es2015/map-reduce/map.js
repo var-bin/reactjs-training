@@ -3,7 +3,7 @@
 "use strict";
 
 /**
- * map() with anonymous in-line functions
+ * map() with anonymous in-line function
  */
 
 function animals() {
@@ -17,6 +17,9 @@ function animals() {
 
 animals();
 
+/**
+ * map() with named function
+ */
 function animalsV1() {
   let animals = ["cat", "dog", "fish"];
 
