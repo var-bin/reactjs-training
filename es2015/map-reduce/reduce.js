@@ -1,0 +1,3 @@
+// reduce.js
+
+"use strict";
