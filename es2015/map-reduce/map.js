@@ -27,7 +27,7 @@ function animalsV1() {
     return word.length;
   }
 
-  console.log("animalsV1(): " + animals.map(_getLength));
+  console.log(`animalsV1(): ${animals.map(_getLength)}`);
 }
 
 animalsV1();
